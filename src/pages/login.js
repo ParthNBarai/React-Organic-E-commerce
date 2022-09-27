@@ -1,10 +1,17 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import '../components/login.css'
 import loginimg from '../assets/images/loginimg.png'
 import sfitlogo from '../assets/images/logo.png'
-import googlelogo from '../assets/images/googlelogo.png'
+import {loginApi} from '../services/auth';
 
-export default function login() {
+
+
+
+export default function login(props) {
+
+   
+    
+
     return (
         <>
 
@@ -16,19 +23,16 @@ export default function login() {
                     <div className="loginform-container">
                         <form action="">
                             <div className="loginlogo"><img src={sfitlogo} alt="" srcset="" /></div>
-                            <h2>SFIT Stock Management System</h2>
+                            <h3>Organic E-Commerce</h3>
                             <div className='logindetails'>
-                                <input type="text" placeholder='User Name' />
-                                <input type="text" placeholder='Password' />
-                                <button type="submit" className='loginbutton'>Login</button>
+                                <input type="text" placeholder='User Name' name ="email" />
+                                <input type="text" placeholder='Password' name="password"/>
+                                <button type="button" className='loginbutton' onClick={loginApi()} >Login</button>
                                 <div className="signupoption">
-                                    <p>New User ?</p>
+                                   
                                     <button className='loginbutton'>SignUp</button>
                                 </div>
-                                <div className="googlelogin">
-                                    <button><img src={googlelogo} /> <h4>Sign Up with Google</h4></button>
-                                    <p>SFIT email only</p>
-                                </div>
+                                
                             </div>
 
                         </form>

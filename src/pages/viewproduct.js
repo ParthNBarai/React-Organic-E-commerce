@@ -29,7 +29,7 @@ function viewproduct(props) {
                                 <Button variant="success">Buy</Button>
                             </div>
                             <div className="col md-3">
-                                <Button variant="success">Add to cart</Button>
+                                <Button className="btn btn-success">Add to cart</Button>
                             </div>
                         </div>
                         <div className="my-3">

@@ -29,7 +29,7 @@
     background-color: white;
     height: 80%;
     box-shadow: 4px 5px 23px rgba(0, 0, 0, 0.39);
-    border-radius: 53px;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,9 +52,9 @@
     align-items: center;
 }
 .logindetails input{
-    width: 80%;
+    width: 100%;
     padding: 10px;
-    border-radius: 50px;
+    border-radius: 10px;
     background: #DBE2EF;
     border: 1.5px solid #3F72AF;
     margin: 0px 0px 20px 0;
