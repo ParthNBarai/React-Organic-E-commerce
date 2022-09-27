@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import Card from './pages/homePage'
+import Navbar from './pages/navbar'
+import Product from './pages/viewproduct'
+
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Card />
+      {/* <Product name = "This is Time!" desc = " This is the best plant. It will grow really fast if you takr proper care." quantity ='3' price = '₹299' services={["Cash On Delivery!",
+      "Free Replacements available"]} warnings = "Water Every 2 days.<br/> Keep away from pets"/> */}
+
+    </>
   );
 }
 
