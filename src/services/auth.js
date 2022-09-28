@@ -22,14 +22,15 @@ export async function createUser(cred) {
 
 export async function loginApi(email,password){
     console.log("Fired")
+    console.log(email+ "  " +password)
     try {
         
         var response= await fetch('/user/login', {
             method : "POST",
             headers: {"Content-type": "application/json"},
             body : JSON.stringify({
-                "email": "parbat@gmail.com",
-                "password": "123456",
+                "email": email,
+                "password": password,
             })
 
         });

@@ -7,9 +7,10 @@ import {loginApi} from '../services/auth';
 
 
 
-export default function login(props) {
+export default function Login(props) {
 
-   
+   const [email,setEmail]= useState("")
+   const [pass,setPass]= useState("")
     
 
     return (
@@ -25,9 +26,9 @@ export default function login(props) {
                             <div className="loginlogo"><img src={sfitlogo} alt="" srcset="" /></div>
                             <h3>Organic E-Commerce</h3>
                             <div className='logindetails'>
-                                <input type="text" placeholder='User Name' name ="email" />
-                                <input type="text" placeholder='Password' name="password"/>
-                                <button type="button" className='loginbutton' onClick={loginApi()} >Login</button>
+                                <input type="text" placeholder='User Name' name ="email" onChange= {(e) => setEmail(e.target.value)}/>
+                                <input type="text" placeholder='Password' name="password" onChange= {(e) => setPass(e.target.value)}/>
+                                <button type="button" className='loginbutton' onClick={()=> {loginApi(email,pass)}} >Login</button>
                                 <div className="signupoption">
                                    
                                     <button className='loginbutton'>SignUp</button>
