@@ -36,8 +36,10 @@ export async function loginApi(email,password){
         });
 
         if(response.status===200){
-            console.log(await response.json())
-            localStorage.setItem('accessToken', response.json()['token']);
+            const json= await response.json();
+            console.log( json.token)
+            
+            localStorage.setItem('auth-token',json.token);
             window.location.href='/home';
         }
         else{

@@ -9,6 +9,8 @@ import sub from '../assets/images/subtract.png'
 
 
 function Viewproduct(props) {
+
+    
     const [item, setItem] = useState(1)
 
     const addItem = () => {
