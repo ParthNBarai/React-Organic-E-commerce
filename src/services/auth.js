@@ -22,7 +22,7 @@ export async function createUser(cred) {
 
 export async function loginApi(email,password){
     console.log("Fired")
-    console.log(email+ "  " +password)
+    // console.log(email+ "  " +password)
     try {
         
         var response= await fetch('/user/login', {

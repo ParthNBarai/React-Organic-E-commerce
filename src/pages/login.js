@@ -1,39 +1,38 @@
-import React ,{useState} from 'react'
+import React, { useState } from 'react'
 import '../components/login.css'
-import loginimg from '../assets/images/loginimg.png'
-import sfitlogo from '../assets/images/logo.png'
-import {loginApi} from '../services/auth';
+import homelogo from '../assets/images/home-logo.png'
+import { loginApi } from '../services/auth';
 
 
 
 
 export default function Login(props) {
 
-   const [email,setEmail]= useState("")
-   const [pass,setPass]= useState("")
-    
+    const [email, setEmail] = useState("")
+    const [pass, setPass] = useState("")
+
 
     return (
         <>
 
             <div className="loginpage">
                 <div className="loginimg">
-                    <img src={loginimg} alt="loginimage" />
+                    <img src={homelogo} alt="loginimage" />
                 </div>
                 <div className="loginform">
                     <div className="loginform-container">
                         <form action="">
-                            <div className="loginlogo"><img src={sfitlogo} alt="" srcset="" /></div>
+                            <div className="loginlogo"><img src={homelogo} alt="" srcset="" /></div>
                             <h3>Organic E-Commerce</h3>
                             <div className='logindetails'>
-                                <input type="text" placeholder='User Name' name ="email" onChange= {(e) => setEmail(e.target.value)}/>
-                                <input type="text" placeholder='Password' name="password" onChange= {(e) => setPass(e.target.value)}/>
-                                <button type="button" className='loginbutton' onClick={()=> {loginApi(email,pass)}} >Login</button>
+                                <input type="text" placeholder='User Name' name="email" onChange={(e) => setEmail(e.target.value)} />
+                                <input type="text" placeholder='Password' name="password" onChange={(e) => setPass(e.target.value)} />
+                                <button type="button" className='loginbutton' onClick={() => { loginApi(email, pass) }} >Login</button>
                                 <div className="signupoption">
-                                   
+
                                     <button className='loginbutton'>SignUp</button>
                                 </div>
-                                
+
                             </div>
 
                         </form>

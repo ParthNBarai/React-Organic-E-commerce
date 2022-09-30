@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
-import logo from '../assets/images/loginimg.png'
+import homelogo from '../assets/images/home-logo.png'
 import Carousal from './carousal'
 import Button from 'react-bootstrap/Button';
 import '../components/product.css'

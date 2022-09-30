@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import logo from '../assets/images/loginimg.png'
+import homelogo from '../assets/images/home-logo.png'
 import '../components/carousal.css'
 
 function UncontrolledExample() {
@@ -10,14 +10,14 @@ function UncontrolledExample() {
                     <Carousel.Item>
                         <img
                             className="d-block"
-                            src={logo}
+                            src={homelogo}
                             alt="First slide"
                         />
                     </Carousel.Item>
                     <Carousel.Item>
                         <img
                             className="d-block"
-                            src={logo}
+                            src={homelogo}
                             alt="Second slide"
                         />
 
@@ -25,7 +25,7 @@ function UncontrolledExample() {
                     <Carousel.Item>
                         <img
                             className="d-block"
-                            src={logo}
+                            src={homelogo}
                             alt="Third slide"
                         />
 

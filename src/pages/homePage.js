@@ -47,7 +47,7 @@ function HomePage() {
         <div className="row">
 
           {item.map((element) => {
-            return <div className="col-md-4" key={element.url}>
+            return <div className="col-md-3" key={element.url}>
               <Card image={logo} name={element.name} id={element._id} />
             </div>
           })}
@@ -58,7 +58,7 @@ function HomePage() {
         <h2>All</h2>
         <div className="row">
           {item.map((element1) => {
-            return <div className="col-md-4" key={element1.url}>
+            return <div className="col-md-3" key={element1.url}>
               <Card image={logo} name={element1.name} />
             </div>
           })}
