@@ -1,9 +1,11 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 function BasicExample(props) {
+    // console.log("Props here test")
+    // console.log(props.id)
     return (
 
         <div className="m-3">
@@ -15,7 +17,7 @@ function BasicExample(props) {
                     <Card.Text>
                         {props.name}
                     </Card.Text>
-                    <Link to={"/view"}>
+                    <Link to='/view' state={{ id: props.id }}>
                         <Button variant="primary">View Product</Button>
                     </Link>
                 </Card.Body>

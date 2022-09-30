@@ -3,19 +3,41 @@ import Card from './card'
 import logo from '../assets/images/person-circle.svg'
 import Carousal from './carousal'
 import Navbar from '../pages/navbar'
-import {getProducts} from '../services/products'
+
 
 function HomePage() {
+  const [item, setItem] = useState([])
+  let getProducts = async () => {
+
+
+    try {
+      // console.log(localStorage.getItem('auth-token'))
+      var response = await fetch('/product/get', {
+        method: "GET",
+        headers: { "Content-Type": "application/json", "token": localStorage.getItem('auth-token') },
+
+      })
+
+      const data = await response.json()
+      // console.log(data)
+      setItem(data)
+      // console.log(item)
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
 
   useEffect(() => {
     getProducts()
-    // eslint-disable-next-line
-}, [])
+    // console.log(item)
+  }, [])
   // const datas= getProducts();
   // console.log("here")
   // console.log(datas)
 
-  const [item,setItem] = useState({})
+
   return (
     <>
       <Navbar />
@@ -23,42 +45,23 @@ function HomePage() {
       <div className="container my-3">
         <h2>More Popular</h2>
         <div className="row">
-          {/* <div className="col-md-3">
-            <Card image={logo} name="plant1" />
-          </div>
-          <div className="col-md-3">
-            <Card image={logo} name="plant2" />
-          </div>
-          <div className="col-md-3">
-            <Card image={logo} name="plant3" />
-          </div>
-          <div className="col-md-3">
-            <Card image={logo} name="plant4" />
-          </div> */}
 
-{item.map((element) => {
-                            return <div className="col-md-4" key={element.url}>
-                                <Card image={logo} name={element.name}/>
-                            </div>
-                        })}
+          {item.map((element) => {
+            return <div className="col-md-4" key={element.url}>
+              <Card image={logo} name={element.name} id={element._id} />
+            </div>
+          })}
         </div>
       </div>
 
       <div className="container my-3">
         <h2>All</h2>
         <div className="row">
-          <div className="col-md-3">
-            <Card image={logo} name="plant1" />
-          </div>
-          <div className="col-md-3">
-            <Card image={logo} name="plant2" />
-          </div>
-          <div className="col-md-3">
-            <Card image={logo} name="plant3" />
-          </div>
-          <div className="col-md-3">
-            <Card image={logo} name="plant4" />
-          </div>
+          {item.map((element1) => {
+            return <div className="col-md-4" key={element1.url}>
+              <Card image={logo} name={element1.name} />
+            </div>
+          })}
         </div>
       </div>
     </>

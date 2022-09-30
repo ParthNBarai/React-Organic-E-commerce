@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Carousel from 'react-bootstrap/Carousel';
 import logo from '../assets/images/loginimg.png'
 import Carousal from './carousal'
@@ -6,15 +6,80 @@ import Button from 'react-bootstrap/Button';
 import '../components/product.css'
 import add from '../assets/images/add.png'
 import sub from '../assets/images/subtract.png'
-
+import Navbar from '../pages/navbar'
+import { useLocation, Link } from 'react-router-dom';
 
 function Viewproduct(props) {
-
-    
+    const [product, setProduct] = useState({})
+    // console.log(product.location.state)
     const [item, setItem] = useState(1)
+    const location = useLocation();
+
+    // console.log("Here")
+    // console.log(location.state.id)
+    let getProduct = async () => {
+
+
+        try {
+            // console.log(localStorage.getItem('auth-token'))
+            var response = await fetch(`/product/get/${location.state.id}`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json", "token": localStorage.getItem('auth-token') },
+
+            })
+
+            const data = await response.json()
+            // console.log("Product")
+            // console.log(data)
+            setProduct(data)
+            // console.log(item)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+    let buyProduct = async () => {
+
+
+        try {
+            // console.log(localStorage.getItem('auth-token'))
+            var response = await fetch('/order/add', {
+                method: "POST",
+                headers: { "Content-Type": "application/json", "token": localStorage.getItem('auth-token') },
+                body: JSON.stringify({
+                    "quantity": item,
+                    "product": location.state.id,
+                    "email": "parbat@gmail.com"
+                })
+
+            })
+
+            const data = await response.json()
+            console.log("Product")
+            console.log(data)
+            setProduct(data)
+            // console.log(item)
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+
+
+
+    useEffect(() => {
+
+        getProduct()
+    }, []);
 
     const addItem = () => {
-        setItem((item) => parseInt(item) + 1)
+        if (item < product.quantity) {
+
+            setItem((item) => parseInt(item) + 1)
+        }
     }
     const subtractItem = () => {
         if (item > 1) {
@@ -24,17 +89,18 @@ function Viewproduct(props) {
 
     return (
         <>
+            <Navbar />
+            <Carousal />
             <div className="container my-3">
-                <Carousal />
                 <div className="row">
 
 
                     <div className="col-md-7 float-end">
                         <div className="my-3" >
-                            <h2>{props.name}</h2>
+                            <h2>{product.name}</h2>
                         </div>
                         <div className="my-3">
-                            {props.price}
+                            ₹ {product.price}
                         </div>
                         <div className="row">
                             <div className="col-1">
@@ -63,7 +129,10 @@ function Viewproduct(props) {
                         </div>
                         <div className='align-button my-3'>
                             <div className="col md-3">
-                                <Button variant="success">Buy</Button>
+                                <Link to='/home' >
+
+                                    <Button variant="success" onClick={() => { buyProduct() }}>Buy</Button>
+                                </Link>
                             </div>
                             <div className="col md-3">
                                 <Button className="btn btn-success">Add to cart</Button>
@@ -73,20 +142,21 @@ function Viewproduct(props) {
                             <div className="my-3">
                                 <h3>Services available:</h3>
                             </div>
-                            {props.services[0]}
+                            {/* {product.services[0]}
                             <br />
-                            {props.services[1]}
+                            {product.services[1]} */}
+                            {product.description}
                         </div>
                         <div className="my-3">
                             <div className="my-3">
                                 <h3>Warnings:</h3>
                             </div>
-                            {props.warnings}
+                            {product.description}
                         </div>
                     </div>
                     <div className="col-md-5">
                         <div className="my-3">
-                            {props.desc}
+                            {product.description}
                         </div>
                     </div>
                 </div>
