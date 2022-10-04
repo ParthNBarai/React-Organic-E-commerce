@@ -14,10 +14,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}></Route>
-      <Route path="/signup" element={<Signup />}></Route>
-      <Route path="/home" element={<HomePage />} />
-      <Route path="/cart" element={<CartPage />} />
+      <Route exact path="/" element={<App />}></Route>
+      <Route exact path="/signup" element={<Signup />}></Route>
+      <Route exact path="/home" element={<HomePage />} />
+      <Route exact path="/cart" element={<CartPage />} />
       <Route exact path="/view" element={<ViewProduct />} />
 
 
