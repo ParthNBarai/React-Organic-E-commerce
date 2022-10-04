@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from './pages/homePage'
 import ViewProduct from './pages/viewproduct'
+import CartPage from './pages/cartPage'
 import Signup from './pages/Signup'
 import Parser from 'html-react-parser';
 
@@ -16,6 +17,7 @@ root.render(
       <Route path="/" element={<App />}></Route>
       <Route path="/signup" element={<Signup />}></Route>
       <Route path="/home" element={<HomePage />} />
+      <Route path="/cart" element={<CartPage />} />
       <Route exact path="/view" element={<ViewProduct />} />
 
 
