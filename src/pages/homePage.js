@@ -1,8 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import Card from './card'
 import logo from '../assets/images/person-circle.svg'
-import Carousal from './carousal'
+import Carousal from './homeCarousal'
 import Navbar from '../pages/navbar'
+import homelogo from '../assets/images/home-logo.png'
 
 
 function HomePage() {
@@ -19,7 +20,7 @@ function HomePage() {
       })
 
       const data = await response.json()
-      // console.log(data)
+      console.log(data)
       setItem(data)
       // console.log(item)
 
@@ -48,7 +49,7 @@ function HomePage() {
 
           {item.map((element) => {
             return <div className="col-md-3" key={element.url}>
-              <Card image={logo} name={element.name} id={element._id} />
+              <Card image={element.images[1]} name={element.name} id={element._id} />
             </div>
           })}
         </div>

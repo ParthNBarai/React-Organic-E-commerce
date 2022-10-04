@@ -50,7 +50,6 @@ function Viewproduct(props) {
                 body: JSON.stringify({
                     "quantity": item,
                     "product": location.state.id,
-                    "email": "parbat@gmail.com"
                 })
 
             })
@@ -90,77 +89,78 @@ function Viewproduct(props) {
     return (
         <>
             <Navbar />
-            <Carousal />
-            <div className="container my-3">
-                <div className="row">
+            
+            <Carousal id = {location.state.id} />
+                <div className="container my-3">
+                    <div className="row">
 
 
-                    <div className="col-md-7 float-end">
-                        <div className="my-3" >
-                            <h2>{product.name}</h2>
-                        </div>
-                        <div className="my-3">
-                            ₹ {product.price}
-                        </div>
-                        <div className="row">
-                            <div className="col-1">
-                                <img
-                                    src={add}
-                                    width="25"
-                                    height="25"
-                                    className="d-inline-block align-top"
-                                    alt="Brand logo"
-                                    onClick={() => addItem()}
-                                />
+                        <div className="col-md-7 float-end">
+                            <div className="my-3" >
+                                <h2>{product.name}</h2>
                             </div>
-                            <div className="col-1">
-                                {item}
-                            </div>
-                            <div className="col-1">
-                                <img
-                                    src={sub}
-                                    width="25"
-                                    height="25"
-                                    className="d-inline-block align-top"
-                                    alt="Brand logo"
-                                    onClick={() => subtractItem()}
-                                />
-                            </div>
-                        </div>
-                        <div className='align-button my-3'>
-                            <div className="col md-3">
-                                <Link to='/home' >
-
-                                    <Button variant="success" onClick={() => { buyProduct() }}>Buy</Button>
-                                </Link>
-                            </div>
-                            <div className="col md-3">
-                                <Button className="btn btn-success">Add to cart</Button>
-                            </div>
-                        </div>
-                        <div className="my-3">
                             <div className="my-3">
-                                <h3>Services available:</h3>
+                                ₹ {product.price}
                             </div>
-                            {/* {product.services[0]}
+                            <div className="row">
+                                <div className="col-1">
+                                    <img
+                                        src={add}
+                                        width="25"
+                                        height="25"
+                                        className="d-inline-block align-top"
+                                        alt="Brand logo"
+                                        onClick={() => addItem()}
+                                    />
+                                </div>
+                                <div className="col-1">
+                                    {item}
+                                </div>
+                                <div className="col-1">
+                                    <img
+                                        src={sub}
+                                        width="25"
+                                        height="25"
+                                        className="d-inline-block align-top"
+                                        alt="Brand logo"
+                                        onClick={() => subtractItem()}
+                                    />
+                                </div>
+                            </div>
+                            <div className='align-button my-3'>
+                                <div className="col md-3">
+                                    <Link to='/home' >
+
+                                        <Button variant="success" onClick={() => { buyProduct() }}>Buy</Button>
+                                    </Link>
+                                </div>
+                                <div className="col md-3">
+                                    <Button className="btn btn-success">Add to cart</Button>
+                                </div>
+                            </div>
+                            <div className="my-3">
+                                <div className="my-3">
+                                    <h3>Services available:</h3>
+                                </div>
+                                {/* {product.services[0]}
                             <br />
                             {product.services[1]} */}
-                            {product.description}
-                        </div>
-                        <div className="my-3">
-                            <div className="my-3">
-                                <h3>Warnings:</h3>
+                                {product.description}
                             </div>
-                            {product.description}
+                            <div className="my-3">
+                                <div className="my-3">
+                                    <h3>Warnings:</h3>
+                                </div>
+                                {product.description}
+                            </div>
                         </div>
-                    </div>
-                    <div className="col-md-5">
-                        <div className="my-3">
-                            {product.description}
+                        <div className="col-md-5">
+                            <div className="my-3">
+                                {product.description}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </>
     )
 }

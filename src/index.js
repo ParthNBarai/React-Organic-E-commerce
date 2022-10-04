@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from './pages/homePage'
 import ViewProduct from './pages/viewproduct'
+import Signup from './pages/Signup'
 import Parser from 'html-react-parser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,6 +14,7 @@ root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}></Route>
+      <Route path="/signup" element={<Signup />}></Route>
       <Route path="/home" element={<HomePage />} />
       <Route exact path="/view" element={<ViewProduct />} />
 

@@ -1,23 +1,7 @@
 import {Link} from 'react-router-dom'
 
 export async function createUser(cred) {
-    try {
-        var response= await fetch('/user/register',{
-            method: "POST",
-            headers : {"Content-Type": "application/json"},
-            body: JSON.stringify(cred)
-        })
-
-        if(response.status===200){
-            console.log(response.json);
-        }
-        else{
-            console.log(response.json)
-        }
-
-    } catch (error) {
-        console.log(error)
-    }
+    
 }
 
 export async function loginApi(email,password){
