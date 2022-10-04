@@ -7,14 +7,14 @@ function CartPage() {
             <Navbar></Navbar>
         <div class="container-fluid my-2">
             <h2>Shopping Cart</h2> <br />
-            <div class="row align-items-start justify-content-evenly">
-                <div class="col-6 align-self-center">
+            <div class="row align-items-start justify-content-evenly ">
+                <div class="col-12 col-md-8  align-self-center">
                     <ItemCard></ItemCard>
                     <ItemCard></ItemCard>
                     <ItemCard></ItemCard>
                     <ItemCard></ItemCard>
                 </div>
-                <div class="col-3 price-box ">
+                <div class="col-12  col-md-3 price-box ">
                     <p> Price Details </p>
                     <hr></hr>
                     <div className="row align-items-start justify-content-evenly">
