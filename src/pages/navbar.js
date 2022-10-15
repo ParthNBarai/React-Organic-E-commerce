@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/images/person-circle.svg'
 import cart from '../assets/images/cart3.svg'
+import { Link } from 'react-router-dom'
 
 function NavScrollExample() {
     return (
@@ -27,14 +28,19 @@ function NavScrollExample() {
                                 alt="Brand logo"
                             />
                         </Nav.Link>
-                        <Nav.Link href="#action2"> <img
+                        
+                        <Nav.Link href="#action2"> 
+                        <Link to='/cart'>
+                        <img
                             src={cart}
                             width="40"
                             height="25"
                             className="d-inline-block align-top"
                             alt="Brand logo"
                         />
+                        </Link>
                         </Nav.Link>
+                        
 
                     </Nav>
                     <Form className="d-flex">

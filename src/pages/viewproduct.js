@@ -13,6 +13,7 @@ function Viewproduct(props) {
     const [product, setProduct] = useState({})
     // console.log(product.location.state)
     const [item, setItem] = useState(1)
+    const [isloading,setLoading]= useState(true)
     const location = useLocation();
 
     // console.log("Here")
@@ -32,6 +33,7 @@ function Viewproduct(props) {
             // console.log("Product")
             // console.log(data)
             setProduct(data)
+            setLoading(false)
             // console.log(item)
 
         } catch (error) {
@@ -40,7 +42,7 @@ function Viewproduct(props) {
 
     }
     let buyProduct = async () => {
-
+        setLoading(true)
 
         try {
             // console.log(localStorage.getItem('auth-token'))
@@ -58,6 +60,7 @@ function Viewproduct(props) {
             // console.log("Product")
             // console.log(data)
             setProduct(data)
+            setLoading(false)
             // console.log(item)
 
         } catch (error) {
@@ -100,6 +103,14 @@ function Viewproduct(props) {
 
         getProduct()
     }, []);
+
+    if(isloading){
+        return (<div className="text-center spinner">
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      </div>)
+    }
 
     const addItem = () => {
         if (item < product.quantity) {
@@ -163,7 +174,9 @@ function Viewproduct(props) {
                             </div>
                             <div className="col md-3">
                                 <Link to='/view'>
-                                    <Button className="btn btn-success" onClick={() => { addToCart() }}>Add to cart</Button>
+                                    <Button className="btn btn-success" onClick={(e) => { 
+                                        e.preventDefault();
+                                        addToCart() }}>Add to cart</Button>
                                 </Link>
                             </div>
                         </div>

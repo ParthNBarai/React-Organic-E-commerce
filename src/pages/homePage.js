@@ -8,6 +8,7 @@ import homelogo from '../assets/images/home-logo.png'
 
 function HomePage() {
   const [item, setItem] = useState([])
+  const [isloading,setLoading]= useState(true)
   let getProducts = async () => {
 
 
@@ -22,6 +23,7 @@ function HomePage() {
       const data = await response.json()
       console.log(data)
       setItem(data)
+      setLoading(false)
       // console.log(item)
 
     } catch (error) {
@@ -38,6 +40,13 @@ function HomePage() {
   // console.log("here")
   // console.log(datas)
 
+  if(isloading){
+    return (<div className="text-center spinner">
+    <div className="spinner-border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  </div>)
+}
 
   return (
     <>
@@ -49,7 +58,7 @@ function HomePage() {
 
           {item.map((element) => {
             return <div className="col-md-3" key={element.url}>
-              <Card image={element.images[1]} name={element.name} id={element._id} />
+              <Card image={element.images[1]} name={element.name} id={element._id} price={element.price} />
             </div>
           })}
         </div>
