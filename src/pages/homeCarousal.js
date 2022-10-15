@@ -4,10 +4,11 @@ import '../components/carousal.css'
 
 function UncontrolledExample() {
     return (
-        <div className="middle">
+        <div className="middle w-100 h-15" style={{'background-color': 'rgba(201,199,199,0.4)'}}>
             <Carousel>
                 <Carousel.Item>
                     <img
+                    height='15%'
                         className="d-block w-100"
                         src={homelogo}
                         alt="First slide"
@@ -16,6 +17,7 @@ function UncontrolledExample() {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
+                   height='15%'
                         className="d-block w-100"
                         src={homelogo}
                         alt="Second slide"
@@ -25,6 +27,7 @@ function UncontrolledExample() {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
+                     height='15%'
                         className="d-block w-100"
                         src={homelogo}
                         alt="Third slide"

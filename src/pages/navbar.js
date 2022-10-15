@@ -6,12 +6,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../assets/images/person-circle.svg'
 import cart from '../assets/images/cart3.svg'
 import { Link } from 'react-router-dom'
+import '../components/navbar.css';
 
 function NavScrollExample() {
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar className='color' expand="lg" >
             <Container fluid>
-                <Navbar.Brand className = 'mx-3' href="#">Organic</Navbar.Brand>
+                <Navbar.Brand className = 'mx-2' href="#">Organic</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -19,7 +20,9 @@ function NavScrollExample() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link className = 'mx-3' href="#action1">
+                        
+                        <Nav.Link className = 'mx-3' href='#action1'>
+                        <Link to='/home'>
                             <img
                                 src={logo}
                                 width="40"
@@ -27,6 +30,7 @@ function NavScrollExample() {
                                 className="d-inline-block align-top"
                                 alt="Brand logo"
                             />
+                            </Link>
                         </Nav.Link>
                         
                         <Nav.Link href="#action2"> 
@@ -50,7 +54,7 @@ function NavScrollExample() {
                             className="me-2"
                             aria-label="Search"
                         />
-                        <Button variant="outline-success">Search</Button>
+                        <Button variant="outline-light">Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>

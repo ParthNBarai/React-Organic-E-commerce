@@ -1,5 +1,5 @@
 import Carousel from 'react-bootstrap/Carousel';
-import homelogo from '../assets/images/home-logo.png'
+import homelogo from '../assets/images/plant_anim.gif'
 import '../components/carousal.css'
 import React, { useState, useEffect } from 'react'
 
@@ -37,21 +37,21 @@ function UncontrolledExample(props) {
         <>
 
             <div className="middle">
-                <div id="carouselExampleSlidesOnly" className="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleSlidesOnly" className="carousel slide " data-bs-ride="carousel">
                     
                 
                     <div className="carousel-inner">
                         <div className="carousel-item">
-                            <img src={homelogo} className="d-block w-100" alt="..." />
+                            <img src={homelogo} width='30%' height='15%' className="d-block w-30vh" alt="..." />
                         </div>
                         
                         {product.map((element, index) => {
                             console.log(index)
                             console.log(element)
                             return index === 0 ? <div className="carousel-item active">
-                                <img src={element} className="d-block w-100" alt="..." />
+                                <img src={element} width='30%' height='15%' className="d-block w-30vh" alt="..." />
                             </div>: <div className="carousel-item ">
-                                <img src={element} className="d-block w-100" alt="..." />
+                                <img src={element} width='30%' height='15%' className="d-block w-30vh" alt="..." />
                                 </div>
                         })}
 
