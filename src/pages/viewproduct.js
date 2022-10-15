@@ -18,6 +18,8 @@ function Viewproduct(props) {
 
     // console.log("Here")
     // console.log(location.state.id)
+    const id = location.state.id
+    console.log(id)
     let getProduct = async () => {
 
 

@@ -5,7 +5,8 @@ import '../components/itemcard.css'
 import { Link } from 'react-router-dom'
 
 function ItemCard(props) {
-    console.log(props.item)
+    console.log("here")
+    console.log(props.item.product._id)
     var quantity = props.item.quantity;
     return (
 
@@ -45,10 +46,10 @@ function ItemCard(props) {
                             </div>
                             <div className="row align-items-start">
                                 <div className='col-12 col-md-3 my-2'>
-                                    <button className="btn btn-danger" >Remove</button>
+                                    <button className="btn btn-danger" onClick={event => props.removeItem(props.index)} >Remove</button>
                                 </div>
                                 <div className='col-12 col-md-8 my-2'>
-                                    <Link to='/view' state={{ id: props.id }}>
+                                    <Link to='/view' state={{ id:props.item.product._id}}>
                                         <button className='btn btn-info text-white' >View product</button>
                                     </Link>
                                 </div>

@@ -2,10 +2,30 @@ import ItemCard from './itemcard'
 import React,{useState, useEffect} from 'react'
 import '../components/cart.css'
 import Navbar from '../pages/navbar'
+import CheckOutModal from '../pages/checkout_dialogue';
+
+
 function CartPage() {
 
     const[isloading,setloading]= useState(true)
     const [items,setItems]=useState([])
+
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+    let removeItem= (index)=> {
+        console.log(index)
+        var array= items;
+        array.splice(index,1)
+        
+        setItems(array);
+        
+        console.log(array)
+    }
+
+
 
     let getcart= async()=>{
         try {
@@ -27,10 +47,10 @@ function CartPage() {
           }
     }
 
-    useEffect(()=>
-        getcart(),
-        []
-    )
+    useEffect(() => {
+
+        getcart()
+    }, []);
 
     if(isloading){
         return (<div className="text-center spinner">
@@ -46,15 +66,17 @@ function CartPage() {
     return (
         
         <div>
+            <CheckOutModal show= {show} handleShow={handleShow} handleClose={handleClose}> </CheckOutModal>
             <Navbar></Navbar>
         <div className="container-fluid my-2">
             <h2>Shopping Cart</h2> <br />
             <div className="row align-items-start justify-content-evenly ">
                 <div className="col-12 col-md-8  align-self-center">
-                {items.map((element) => {
-                           
-                            console.log(element)
-                            return <ItemCard key= {element._id} item={element} />
+                {items.map((element,index) => {
+                            
+                            console.log(index)
+                            // console.log(element)
+                            return <ItemCard  item={element} removeItem= {removeItem} index= {index}/>
                         }
                 )}
                 </div>
@@ -85,8 +107,8 @@ function CartPage() {
                         </div>
                     </div>
                     <div className='text-center'>
-                        <button className='btn btn-success align-self-center' >Checkout</button>
-                    </div>
+                        <button className='btn btn-success align-self-center' onClick={handleShow}>Checkout</button>
+                    </div> 
                 </div>
 
             </div>

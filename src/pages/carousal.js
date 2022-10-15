@@ -41,16 +41,18 @@ function UncontrolledExample(props) {
                     
                 
                     <div className="carousel-inner">
-                        <div className="carousel-item active">
+                        <div className="carousel-item">
                             <img src={homelogo} className="d-block w-100" alt="..." />
                         </div>
                         
                         {product.map((element, index) => {
                             console.log(index)
                             console.log(element)
-                            return <div className="carousel-item">
+                            return index === 0 ? <div className="carousel-item active">
                                 <img src={element} className="d-block w-100" alt="..." />
-                            </div>
+                            </div>: <div className="carousel-item ">
+                                <img src={element} className="d-block w-100" alt="..." />
+                                </div>
                         })}
 
                     </div>
