@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 import '../components/card.css'
 
 function BasicExample(props) {
-    console.log("Props here test")
-    console.log(props.id)
+    // console.log("Props here test")
+    // console.log(props.id)
     return (
 
         <div className="">

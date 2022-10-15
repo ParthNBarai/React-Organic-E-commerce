@@ -8,7 +8,8 @@ import homelogo from '../assets/images/home-logo.png'
 
 function HomePage() {
   const [item, setItem] = useState([])
-  const [isloading,setLoading]= useState(true)
+  const [allitem, setAllItem] = useState([])
+  const [isloading, setLoading] = useState(true)
   let getProducts = async () => {
 
 
@@ -21,7 +22,7 @@ function HomePage() {
       })
 
       const data = await response.json()
-      console.log(data)
+      // console.log(data)
       setItem(data)
       setLoading(false)
       // console.log(item)
@@ -32,21 +33,45 @@ function HomePage() {
 
   }
 
+  let getAllProducts = async () => {
+
+
+    try {
+      // console.log(localStorage.getItem('auth-token'))
+      var response = await fetch('product/get/all', {
+        method: "GET",
+        headers: { "Content-Type": "application/json", "token": localStorage.getItem('auth-token') },
+
+      })
+
+      const data = await response.json()
+      console.log("data")
+      console.log(data)
+      setAllItem(data)
+      setLoading(false)
+      // console.log(item)
+
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
   useEffect(() => {
     getProducts()
+    getAllProducts()
     // console.log(item)
   }, [])
   // const datas= getProducts();
   // console.log("here")
   // console.log(datas)
 
-  if(isloading){
+  if (isloading) {
     return (<div className="text-center spinner">
-    <div className="spinner-border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
-  </div>)
-}
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    </div>)
+  }
 
   return (
     <>
@@ -67,9 +92,11 @@ function HomePage() {
       <div className="container my-3">
         <h2>All</h2>
         <div className="row">
-          {item.map((element1) => {
+          {allitem.map((element1) => {
+            console.log("element1")
+            console.log(element1)
             return <div className="col-md-3" key={element1.url}>
-              <Card image={logo} name={element1.name} />
+              <Card image={element1.images[1]} name={element1.name} id={element1._id} price={element1.price} />
             </div>
           })}
         </div>

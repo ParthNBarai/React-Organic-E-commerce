@@ -81,8 +81,8 @@ function Viewproduct(props) {
 
         try {
             // console.log(localStorage.getItem('auth-token'))
-            console.log("inside cart func")
-            console.log(location.state.id)
+            // console.log("inside cart func")
+            // console.log(location.state.id)
             var response = await fetch('/cart/add', {
                 method: "POST",
                 headers: { "Content-Type": "application/json", "token": localStorage.getItem('auth-token') },
@@ -93,8 +93,8 @@ function Viewproduct(props) {
             })
 
             const data = await response.json()
-            console.log("data test")
-            console.log(data)
+            // console.log("data test")
+            // console.log(data)
             // setItem(data)
             // console.log(item)
 
