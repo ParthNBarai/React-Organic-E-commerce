@@ -7,11 +7,18 @@ function OrderPlaced() {
 
     return (
         <>
-            <img src={logo} className="rounded mx-auto d-block" />
-            <p align = 'center'>
-                Your Order has been successfully placed!
-            </p>
-
+            
+            
+            
+            <div class="d-flex align-items-center " style={{"min-height": "100vh"}}>
+                <div class="box w-100 ">
+                <img src={logo} className="rounded mx-auto d-block" />
+                    <h3 className='display-5' align='center'>Your Order has been successfully placed!</h3>
+                </div>
+            </div>
+        
+        
+    
             {setTimeout(function () {
                 window.location.href = '/home';
             }, 5000)}

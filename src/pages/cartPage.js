@@ -70,9 +70,7 @@ function CartPage() {
     }
 
 
-    let empty = () => {
 
-    }
     let getcart = async () => {
         try {
 
@@ -115,7 +113,11 @@ function CartPage() {
     if (items.length == 0) {
         return (<>
             <Navbar></Navbar>
-            <h3 align='center'> There is nothing to show in cart!</h3>
+            <div class="d-flex align-items-center " style={{"min-height": "100vh"}}>
+                <div class="box w-100 ">
+                    <h3 className='display-5' align='center'>There is nothing to be shown in the cart!!</h3>
+                </div>
+            </div>
         </>
         )
     }
