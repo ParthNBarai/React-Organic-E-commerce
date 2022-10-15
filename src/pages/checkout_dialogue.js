@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import {Link} from 'react-router-dom'
 
 function CheckOutModal(props) {
 
@@ -15,19 +16,19 @@ function CheckOutModal(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <form>
-                        <div class="form-group">
-                            <label for="Address">Address</label>
-                            <textarea class="form-control" id="Address" rows="3"></textarea>
+                        <div className="form-group">
+                            <label htmlFor="Address">Address</label>
+                            <textarea className="form-control" id="Address" rows="3"></textarea>
                         </div>
-                         <br></br>
-                        <div class="form-group">
-                            <label for="paynment">Paynment Mode</label>
-                            
+                        <br></br>
+                        <div className="form-group">
+                            <label htmlFor="paynment">Paynment Mode</label>
+
                         </div>
-                       
-                        <div class="form-check" id='paynment'>
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                            <label class="form-check-label" for="flexRadioDefault2">
+
+                        <div className="form-check" id='paynment'>
+                            <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+                            <label className="form-check-label" htmlFor="flexRadioDefault2">
                                 COD (Cash on delivery)
                             </label>
                         </div>
@@ -39,9 +40,11 @@ function CheckOutModal(props) {
                         Close
                     </Button> */}
                     <div>
-                        <Button variant="success" onClick={props.handleClose} className='align-self-center'>
-                            Checkout
-                        </Button>
+                        <Link to='/order'>
+                            <Button variant="success" onClick={props.checkout} className='align-self-center'>
+                                Checkout
+                            </Button>
+                        </Link>
                     </div>
                 </Modal.Footer>
             </Modal>

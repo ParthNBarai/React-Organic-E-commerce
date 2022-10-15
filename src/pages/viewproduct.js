@@ -6,14 +6,19 @@ import Button from 'react-bootstrap/Button';
 import '../components/product.css'
 import add from '../assets/images/add.png'
 import sub from '../assets/images/subtract.png'
-import Navbar from '../pages/navbar'
+import Navbar from './navbar'
 import { useLocation, Link } from 'react-router-dom';
+import CheckOutModal from '../pages/checkout_dialogue';
 
 function Viewproduct(props) {
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
     const [product, setProduct] = useState({})
     // console.log(product.location.state)
     const [item, setItem] = useState(1)
-    const [isloading,setLoading]= useState(true)
+    const [isloading, setLoading] = useState(true)
     const location = useLocation();
 
     // console.log("Here")
@@ -106,12 +111,12 @@ function Viewproduct(props) {
         getProduct()
     }, []);
 
-    if(isloading){
+    if (isloading) {
         return (<div className="text-center spinner">
-        <div className="spinner-border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </div>
-      </div>)
+            <div className="spinner-border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        </div>)
     }
 
     const addItem = () => {
@@ -128,6 +133,7 @@ function Viewproduct(props) {
 
     return (
         <>
+            <CheckOutModal show={show} handleShow={handleShow} handleClose={handleClose} checkout = {buyProduct}> </CheckOutModal>
             <Navbar />
 
             <Carousal id={location.state.id} />
@@ -169,16 +175,16 @@ function Viewproduct(props) {
                         </div>
                         <div className='align-button my-3'>
                             <div className="col md-3">
-                                <Link to='/home' >
 
-                                    <Button variant="success" onClick={() => { buyProduct() }}>Buy</Button>
-                                </Link>
+                                <Button variant="success" onClick={handleShow}>Buy</Button>
+
                             </div>
                             <div className="col md-3">
                                 <Link to='/view'>
-                                    <Button className="btn btn-success" onClick={(e) => { 
+                                    <Button className="btn btn-success" onClick={(e) => {
                                         e.preventDefault();
-                                        addToCart() }}>Add to cart</Button>
+                                        addToCart()
+                                    }}>Add to cart</Button>
                                 </Link>
                             </div>
                         </div>

@@ -8,6 +8,7 @@ import HomePage from './pages/homePage'
 import ViewProduct from './pages/viewproduct'
 import CartPage from './pages/cartPage'
 import Signup from './pages/Signup'
+import OrderPlaced from './pages/OrderPlaced';
 import Parser from 'html-react-parser';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,6 +20,7 @@ root.render(
       <Route exact path="/home" element={<HomePage />} />
       <Route exact path="/cart" element={<CartPage />} />
       <Route exact path="/view" element={<ViewProduct />} />
+      <Route exact path="/order" element={<OrderPlaced />} />
 
 
     </Routes>
