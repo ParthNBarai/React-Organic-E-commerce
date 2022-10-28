@@ -8,6 +8,8 @@ SignUp page:
 
 Home Page:
 
+![image](https://user-images.githubusercontent.com/87558485/198507440-09a940d6-1a28-42dc-87cd-3b49cb23bccc.png)
+
 ![image](https://user-images.githubusercontent.com/87558485/198507196-2b47a87a-e4eb-4470-8aaf-a0348f828a08.png)
 
 ![image](https://user-images.githubusercontent.com/87558485/198507219-14a18927-776a-427d-91b5-5ee24c7d0fd8.png)
