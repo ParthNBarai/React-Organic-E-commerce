@@ -27,7 +27,7 @@ export default function Login(props) {
                             <h3>Organic E-Commerce</h3>
                             <div className='logindetails'>
                                 <input type="text" placeholder='User Name' name="email" onChange={(e) => setEmail(e.target.value)} />
-                                <input type="text" placeholder='Password' name="password" onChange={(e) => setPass(e.target.value)} />
+                                <input type="password" placeholder='Password' name="password" onChange={(e) => setPass(e.target.value)} />
                                 <button type="button" className='loginbutton' onClick={() => { loginApi(email, pass) }} >Login</button>
                                 <div className="signupoption">
                                     <Link to='/signup'>
