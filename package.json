@@ -2,6 +2,7 @@
   "name": "first_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://restapi.wiestellservices.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -23,7 +24,7 @@
     "eject": "react-scripts eject"
   },
   
-  "proxy": "",  
+  
   "eslintConfig": {
     "extends": [
       "react-app",

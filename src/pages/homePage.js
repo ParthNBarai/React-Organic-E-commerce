@@ -15,7 +15,7 @@ function HomePage() {
 
     try {
       // console.log(localStorage.getItem('auth-token'))
-      var response = await fetch('/product/get', {
+      var response = await fetch('http://localhost:5000/product/get', {
         method: "GET",
         headers: { "Content-Type": "application/json", "token": localStorage.getItem('auth-token') },
 
